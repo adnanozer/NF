@@ -1,0 +1,220 @@
+﻿
+@model Nefa.Models.IndexViewModel;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="form-row">
+            <div class="col-md-auto" hidden="hidden">
+                @Html.EditorFor(model => model.dataModel.id)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.cariKod, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.cariKod)
+                @Html.ValidationMessageFor(model => model.dataModel.cariKod)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.cariIsim, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.cariIsim)
+                @Html.ValidationMessageFor(model => model.dataModel.cariIsim)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.adres, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.adres)
+                @Html.ValidationMessageFor(model => model.dataModel.adres)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.ilceAdi, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.ilceAdi)
+                @Html.ValidationMessageFor(model => model.dataModel.ilceAdi)
+            </div>
+
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.ilAdi)
+                @Html.ValidationMessageFor(model => model.dataModel.ilAdi)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.ulkeKodu, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.ulkeKodu)
+                @Html.ValidationMessageFor(model => model.dataModel.ulkeKodu)
+            </div>
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.ulkeAdi)
+                @Html.ValidationMessageFor(model => model.dataModel.ulkeAdi)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.telefonNumara, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.telefonNumara)
+                @Html.ValidationMessageFor(model => model.dataModel.telefonNumara)
+            </div>
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.faxNumara)
+                @Html.ValidationMessageFor(model => model.dataModel.faxNumara)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.vergiDairesi, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.vergiDairesi)
+                @Html.ValidationMessageFor(model => model.dataModel.vergiDairesi)
+            </div>
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.vergiDairesiNo)
+                @Html.ValidationMessageFor(model => model.dataModel.vergiDairesiNo)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.tcKimlikNumarası, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.tcKimlikNumarası)
+                @Html.ValidationMessageFor(model => model.dataModel.tcKimlikNumarası)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.postakodu, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.postakodu)
+                @Html.ValidationMessageFor(model => model.dataModel.postakodu)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.tip, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @*To-Do burada enum set olmuyor bak!*@
+                @Html.RadioButtonFor(model => model.dataModel.tip, Nefa.Models.Enums.Tip.alici) @Html.Label("Alıcı")
+                @Html.RadioButtonFor(model => model.dataModel.tip, Nefa.Models.Enums.Tip.kefil) @Html.Label("Kefil")
+                @Html.RadioButtonFor(model => model.dataModel.tip, Nefa.Models.Enums.Tip.toptanci) @Html.Label("Toptancı")
+                @Html.RadioButtonFor(model => model.dataModel.tip, Nefa.Models.Enums.Tip.müstahsil) @Html.Label("Müstahsil")
+                @Html.RadioButtonFor(model => model.dataModel.tip, Nefa.Models.Enums.Tip.satici) @Html.Label("Satıcı")
+                @Html.RadioButtonFor(model => model.dataModel.tip, Nefa.Models.Enums.Tip.diger) @Html.Label("Diğer")
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.emailAdres, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.emailAdres)
+                @Html.ValidationMessageFor(model => model.dataModel.emailAdres)
+            </div>
+        </div>
+        <div class="form-row">
+            @Html.LabelFor(model => model.dataModel.webAdres, new { @class = "control-label col-md-2" })
+            <div class="col-md-auto">
+                @Html.EditorFor(model => model.dataModel.webAdres)
+                @Html.ValidationMessageFor(model => model.dataModel.webAdres)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="Crate" value="Kaydet" />
+                @Html.ActionLink("Temizle", "Index")
+            </div>
+        </div>
+
+        <div id="divSearchResult" class="form-group">
+            @Html.Partial("SelectList", Model.dataModelList)
+        </div>
+    </div>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@*<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Crate").click(function () {
+                alert("Crate");
+                var model = {
+                    cariKod: $("#cariKod").val(),
+                    cariIsim: $("#cariIsim").val(),
+                    ilceKod: $("#ilceKod").val(),
+                    ilceAdi: $("#ilceAdi").val(),
+                    ilKod: $("#ilKod").val(),
+                    ilAdi: $("#ilAdi").val(),
+                    ulkeKodu: $("#ulkeKodu").val(),
+                    ulkeAdi: $("#ulkeAdi").val(),
+                    telefonNumara: $("#telefonNumara").val(),
+                    faxKod: $("#faxKod").val(),
+                    faxNumara: $("#faxNumara").val(),
+                    vergiDairesi: $("#vergiDairesi").val(),
+                    vergiDairesiNo: $("#vergiDairesiNo").val(),
+                    tcKimlikNumarası: $("#tcKimlikNumarası").val(),
+                    tip: $("#tip").val(),
+                    emailAdres: $("#emailAdres").val(),
+                    webAdres: $("#webAdres").val(),
+                };
+
+                $.ajax({
+                    url: "/Home/Create/)",
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(model),
+                    success: function (data) {
+                        alert("BAşarılı");
+                    },
+                    error: function (hata, ajaxOptions, thrownError) {
+                        alert(hata.responseText);
+                    }
+                });
+            });
+            $("#Delete").click(function () {
+                var ID = $("#OgrenciID").val();
+                $.ajax({
+                    url: '/Home/Create/' + ID,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        alert("BAşarılı");
+                    },
+                    error: function (hata, ajaxOptions, thrownError) {
+                        alert(hata.responseText);
+                    }
+                });
+            });
+            $("#Update").click(function () {
+                var ID = $("#OgrenciID").val();
+                $.ajax({
+                    url: '/Home/Create/' + ID,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        alert("BAşarılı");
+                    },
+                    error: function (hata, ajaxOptions, thrownError) {
+                        alert(hata.responseText);
+                    }
+                });
+            });
+            $("#Select").click(function () {
+                var ID = $("#OgrenciID").val();
+                $.ajax({
+                    url: '/Home/Create/' + ID,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        alert("BAşarılı");
+                    },
+                    error: function (hata, ajaxOptions, thrownError) {
+                        alert(hata.responseText);
+                    }
+                });
+            });
+    </script>*@
+

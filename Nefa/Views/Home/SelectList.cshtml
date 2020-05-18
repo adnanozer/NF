@@ -1,0 +1,128 @@
+﻿@model IEnumerable<Nefa.Models.DataModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cariKod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cariIsim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ilceKod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ilceAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ilKod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ilAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ulkeKodu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ulkeAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefonNumara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.faxNumara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vergiDairesi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vergiDairesiNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tcKimlikNumarası)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.postakodu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailAdres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.webAdres)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cariKod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cariIsim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilceKod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilceAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilKod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ulkeKodu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ulkeAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefonNumara)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.faxNumara)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vergiDairesi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vergiDairesiNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tcKimlikNumarası)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.postakodu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailAdres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.webAdres)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Update", item) |
+                    @Html.ActionLink("Delete", "Delete", item)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
