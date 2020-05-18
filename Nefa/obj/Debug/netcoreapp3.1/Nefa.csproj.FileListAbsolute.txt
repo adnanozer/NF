@@ -598,7 +598,6 @@ D:\GitHub\nf\Nefa\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\GitHub\nf\Nefa\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\GitHub\nf\Nefa\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\GitHub\nf\Nefa\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Nefa.csprojAssemblyReference.cache
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Nefa.csproj.CoreCompileInputs.cache
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Nefa.MvcApplicationPartsAssemblyInfo.cache
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Nefa.RazorAssemblyInfo.cache
@@ -610,7 +609,6 @@ D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Nefa.TagHelpers.output.cache
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Nefa.RazorCoreGenerate.cache
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Razor\Views\Home\SelectList.cshtml.g.cs
-D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Razor\Views\Home\Update.cshtml.g.cs
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Razor\Views\Shared\RadioButtonListEnum.cshtml.g.cs
 D:\GitHub\nf\Nefa\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
