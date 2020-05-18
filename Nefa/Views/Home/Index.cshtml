@@ -123,8 +123,10 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="CreateAjax" value="KaydetAjax" />
                 <input type="submit" id="Crate" value="Kaydet" />
                 @Html.ActionLink("Temizle", "Index")
+                @*<input type="button" id="Clear" value="Temizle" />*@
             </div>
         </div>
 
@@ -136,85 +138,86 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-@*<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#Crate").click(function () {
-                alert("Crate");
-                var model = {
-                    cariKod: $("#cariKod").val(),
-                    cariIsim: $("#cariIsim").val(),
-                    ilceKod: $("#ilceKod").val(),
-                    ilceAdi: $("#ilceAdi").val(),
-                    ilKod: $("#ilKod").val(),
-                    ilAdi: $("#ilAdi").val(),
-                    ulkeKodu: $("#ulkeKodu").val(),
-                    ulkeAdi: $("#ulkeAdi").val(),
-                    telefonNumara: $("#telefonNumara").val(),
-                    faxKod: $("#faxKod").val(),
-                    faxNumara: $("#faxNumara").val(),
-                    vergiDairesi: $("#vergiDairesi").val(),
-                    vergiDairesiNo: $("#vergiDairesiNo").val(),
-                    tcKimlikNumarası: $("#tcKimlikNumarası").val(),
-                    tip: $("#tip").val(),
-                    emailAdres: $("#emailAdres").val(),
-                    webAdres: $("#webAdres").val(),
-                };
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $("#CreateAjax").click(function () {
+        var model = {
+            id: $("#dataModel_id").val(),
+            cariKod: $("#dataModel_cariKod").val(),
+            cariIsim: $("#dataModel_cariIsim").val(),
+            ilceKod: $("#dataModel_ilceKod").val(),
+            adres: $("#dataModel_adres").val(),
+            ilceAdi: $("#dataModel_ilceAdi").val(),
+            ilKod: $("#dataModel_ilKod").val(),
+            ilAdi: $("#dataModel_ilAdi").val(),
+            ulkeKodu: $("#dataModel_ulkeKodu").val(),
+            ulkeAdi: $("#dataModel_ulkeAdi").val(),
+            telefonNumara: $("#dataModel_telefonNumara").val(),
+            faxKod: $("#dataModel_faxKod").val(),
+            faxNumara: $("#dataModel_faxNumara").val(),
+            vergiDairesi: $("#dataModel_vergiDairesi").val(),
+            vergiDairesiNo: $("#dataModel_vergiDairesiNo").val(),
+            tcKimlikNumarası: $("#dataModel_tcKimlikNumarası").val(),
+            postakodu: $("#dataModel_postakodu").val(),
+            tip: $("#dataModel_tip").val(),
+            emailAdres: $("#dataModel_emailAdres").val(),
+            webAdres: $("#dataModel_webAdres").val(),
+        }; $.ajax({
+            url: "/Home/CreateAjax",
+            dataType: "json",
+            type: "POST",
+            data: { request: model },
+            success: function (data) {
+                RefreshListAjax();
+                alert("İşlem Başarılı");
+            },
+            error: function (hata, ajaxOptions, thrownError) {
+                alert(hata.responseText);
+            }
+        });
+    });
 
-                $.ajax({
-                    url: "/Home/Create/)",
-                    dataType: "json",
-                    contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify(model),
-                    success: function (data) {
-                        alert("BAşarılı");
-                    },
-                    error: function (hata, ajaxOptions, thrownError) {
-                        alert(hata.responseText);
-                    }
-                });
-            });
-            $("#Delete").click(function () {
-                var ID = $("#OgrenciID").val();
-                $.ajax({
-                    url: '/Home/Create/' + ID,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function (data) {
-                        alert("BAşarılı");
-                    },
-                    error: function (hata, ajaxOptions, thrownError) {
-                        alert(hata.responseText);
-                    }
-                });
-            });
-            $("#Update").click(function () {
-                var ID = $("#OgrenciID").val();
-                $.ajax({
-                    url: '/Home/Create/' + ID,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function (data) {
-                        alert("BAşarılı");
-                    },
-                    error: function (hata, ajaxOptions, thrownError) {
-                        alert(hata.responseText);
-                    }
-                });
-            });
-            $("#Select").click(function () {
-                var ID = $("#OgrenciID").val();
-                $.ajax({
-                    url: '/Home/Create/' + ID,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function (data) {
-                        alert("BAşarılı");
-                    },
-                    error: function (hata, ajaxOptions, thrownError) {
-                        alert(hata.responseText);
-                    }
-                });
-            });
-    </script>*@
+    function RefreshListAjax() {
+
+        $.ajax({
+            url: "/Home/RefreshListAjax",
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            type: "POST",
+            success: function (data) {
+                $("#divSearchResult").empty();
+                $('#divSearchResult').html(context);
+            },
+            error: function (response, status, error) {
+                FailureIncomingSearch(response, status, error);
+            }
+        });
+    }
+    $("#Clear").click(function () {
+        $("#dataModel_id").val("");
+        $("#dataModel_cariKod").val("");
+        $("#dataModel_cariIsim").val("");
+        $("#dataModel_ilceKod").val("");
+        $("#dataModel_adres").val("");
+        $("#dataModel_ilceAdi").val("");
+        $("#dataModel_ilKod").val("");
+        $("#dataModel_ilAdi").val("");
+        $("#dataModel_ulkeKodu").val("");
+        $("#dataModel_ulkeAdi").val("");,
+        $("#dataModel_telefonNumara").val("");
+        $("#dataModel_faxKod").val("");
+        $("#dataModel_faxNumara").val("");
+        $("#dataModel_vergiDairesi").val("");
+        $("#dataModel_vergiDairesiNo").val("");
+        $("#dataModel_tcKimlikNumarası").val("");
+        $("#dataModel_postakodu").val("");
+        $("#dataModel_tip").val("");
+        $("#dataModel_emailAdres").val("");
+        $("#dataModel_webAdres").val("");
+    });
+    $(document).ready(function () {
+
+    });
+</script>
+
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -38,12 +39,41 @@ namespace Nefa.Controllers
             var data = _modelContext.GetData(model);
             return View(data);
         }
-        [HttpPost, ActionName("SelectList")]
-        public PartialViewResult SelectList()
-        {
-            var data = _modelContext.GetAllData();
-            return PartialView("SelectList", data);
+
+
+        [HttpPost]
+        public JsonResult CreateAjax(DataModel request) {
+
+            int data;
+            bool Success = new bool();
+            if (request.id != null && request.id != 0)
+            {
+                data = _modelContext.Update(request);
+            }
+            else
+            {
+                data = _modelContext.Insert(request);
+            }
+            if (data != 1)
+            {
+                Success = false;
+            }
+            return Json(new {
+                success = Success
+            });
         }
+        [HttpPost, ActionName("RefreshListAjax")]
+        public ActionResult  RefreshListAjax()
+        {
+            IndexViewModel indexViewModel = new IndexViewModel
+            {
+                dataModelList = _modelContext.GetAllData().ToList()
+            };
+            //burada partial view şeklinde dönmem lazım ama core 3.1 de ViewEngines çalışmadı 
+            //bu nedenle yetişmedi diyeyim. ajax çalışsaydı postback olmadan listey yenileyecektim.
+            return PartialView("SelectList", indexViewModel.dataModelList);
+        }
+
         [HttpPost, ActionName("Create")]
 
         public IActionResult Create(IndexViewModel model)
@@ -63,6 +93,8 @@ namespace Nefa.Controllers
             }
             return RedirectToAction("Index");
         }
+
+
         [HttpGet, ActionName("Update")]
         public IActionResult Update(DataModel model)
         {
